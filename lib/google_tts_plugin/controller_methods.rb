@@ -36,6 +36,7 @@ module GoogleTTSPlugin
         end
         
         #create volume file
+        puts "#{config.sox_path} -v #{volume} #{target_file} #{volume_file}"
         Kernel.system "#{config.sox_path} -v #{volume} #{target_file} #{volume_file}"
         #move to target_file(tempfile). this will ensure the file will be deleted by GC
         FileUtils.mv volume_file, target_file.to_s
